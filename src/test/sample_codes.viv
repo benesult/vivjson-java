@@ -1,0 +1,157 @@
+/* 2 dimensional array
+ *
+ * expected = [
+ *     [0, 1, 2],
+ *     [true, "text", null],
+ *     [3, 4, 5],
+ *     [6, 7, 8]
+ * ]
+ */
+row = 3
+column = 3
+addition = [true, "text", null]
+
+count = 0
+array_2d = []
+for (i = 0; i < row; i += 1) {
+    array_2d += []  # Append new row
+    for (j = 0; j < column; j += 1) {
+        array_2d[i] += count  # Append new column
+        count += 1
+    }
+}
+
+insert(array_2d, 1, addition)
+
+print(array_2d)  # [[0, 1, 2], [true, "text", null], [3, 4, 5], [6, 7, 8]]
+
+
+/* Initialization of array
+ *
+ * expected = [null, null, null, null, null]
+ */
+size = 5
+
+array_init = [null] * size
+
+print(array_init)  # [null, null, null, null, null]
+
+
+/* "do" and "break"
+ *
+ * Note that it is not "do-while" loop.
+ *
+ * expected = "1xxx"
+ */
+value = 1000
+
+delegate_do = null
+do {
+    delegate_do = "1x"
+    if (value >= 10 and value < 100) {
+        break
+    }
+    delegate_do += "x"
+    if (value >= 100 and value < 1000) {
+        break
+    }
+    delegate_do += "x"
+    if (value >= 1000 and value < 10000) {
+        break
+    }
+    delegate_do = "other"
+}
+print(delegate_do)  # 1xxx
+
+
+/* First class function
+ *
+ * 1. expected = 3
+ * 2. expected = [7, 3, 10, 2.5]
+ */
+foo = 5
+bar = 2
+
+function add(a, b) {
+    return(a + b)
+}
+
+function subtract(a, b) {
+    return(a - b)
+}
+
+function multiply(a, b) {
+    return(a * b)
+}
+
+function divide(a, b) {
+    return(a / b)
+}
+
+// Case 1
+
+functions = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+
+function operation(operator, a, b) {
+    func = functions[operator]
+    if (func == null) {
+        return(null)
+    }
+    return(func(a, b))
+}
+
+operated_1 = operation("-", foo, bar)
+print(operated_1)  # 3
+
+// Case 2
+
+functions = [
+    add,
+    subtract,
+    multiply,
+    divide
+]
+
+operated_2 = []
+for (func in functions) {
+    operated_2 += func(foo, bar)
+}
+print(operated_2)  # [7, 3, 10, 2.5]
+
+
+/* Closure
+ *
+ * 1. expected = May
+ * 2. expected = Sat
+ */
+index = 5
+
+function enclosure(start, names) {
+    offset = start
+    list = names
+
+    function get(index) {
+        index -= offset
+        return(if (index >= 0 and index < len(list))
+               {:= list[index]} else {:= null})
+    }
+
+    return(get)
+}
+
+get_month = enclosure(1,
+                      ['Jan' 'Feb' 'Mar' 'Apr'
+                       'May' 'Jun' 'Jul' 'Aug'
+                       'Sep' 'Oct' 'Nov' 'Dec'])
+get_day_of_week = enclosure(0,
+                            ['Mon' 'Tue' 'Wed' 'Thu'
+                             'Fri' 'Sat' 'Sun'])
+month = get_month(index)
+day_of_week = get_day_of_week(index)
+print(month)  # May
+print(day_of_week)  # Sat

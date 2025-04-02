@@ -1,0 +1,6 @@
+function test(k) {
+    k = k + 1
+    return(_[0])
+}
+
+return(test(5))

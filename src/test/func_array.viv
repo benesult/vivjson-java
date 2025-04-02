@@ -1,0 +1,83 @@
+whole_result = []
+
+// User defined function
+
+function add(x, y) {
+    return(x + y)
+}
+
+function subtract(x, y) {
+    return(x - y)
+}
+
+function multiply(x, y) {
+    return (x * y)
+}
+
+function divide(x, y) {
+    return (x / y)
+}
+
+methods = [
+    add,
+    subtract,
+    multiply,
+    divide
+]
+values = [10, 5]
+
+method = add
+whole_result += method(values[0], values[1])
+
+results = []
+for (method in methods) {
+    results += method(values[0], values[1])
+}
+whole_result += results
+
+results = []
+for (i = 0; i < len(methods); i += 1) {
+    results += methods[i](values[0], values[1])
+}
+whole_result += results
+
+whole_result += [
+    methods.0(values[0], values[1])
+    methods.1(values[0], values[1])
+    methods.2(values[0], values[1])
+    methods.3(values[0], values[1])
+]
+
+// Standard library's function
+
+methods = [
+    len,
+    int,
+    float,
+    string
+]
+value = '100'
+
+method = len
+whole_result += method(value)
+
+results = []
+for (method in methods) {
+    results += method(value)
+}
+whole_result += results
+
+results = []
+for (i = 0; i < len(methods); i += 1) {
+    results += methods[i](value)
+}
+whole_result += results
+
+whole_result += [
+    methods.0(value)
+    methods.1(value)
+    methods.2(value)
+    methods.3(value)
+]
+
+return(whole_result)

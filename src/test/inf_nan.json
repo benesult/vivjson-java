@@ -1,0 +1,7 @@
+{
+    "normal": 1.5,
+    "inf": Infinity,
+    "negative_inf": -Infinity,
+    "nan": NaN,
+    "str": "1.5"
+}
