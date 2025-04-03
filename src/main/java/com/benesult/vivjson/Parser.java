@@ -129,7 +129,7 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  * <p>Environment: Java 9 or later
  *
- * <p>Last modified: 2025-04-01
+ * <p>Last modified: 2025-04-04
  *
  * @author Fumiaki Motegi (motegi@benesult.com)
  */
@@ -372,7 +372,7 @@ class Parser {
         }
 
         String tokenInfo = getToken().toString(true);
-        abort(tokenInfo + "is unexpected.");
+        abort(tokenInfo + " is unexpected.");
       }
 
       if (isConsumed) {
