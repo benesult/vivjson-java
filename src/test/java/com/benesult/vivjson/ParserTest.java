@@ -41,7 +41,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  *   <li> JUnit 5.11 or later
  * </ul>
  *
- * <p>Last modified: 2025-04-01
+ * <p>Last modified: 2025-04-04
  *
  * @author Fumiaki Motegi (motegi@benesult.com)
  */
@@ -114,6 +114,8 @@ public class ParserTest {
     "function (a) {return}, a, null, null, true",  // Identifier is needed after function's modifier.
     "'a = 0\n\nif\n\n(\n\ntrue\n\n)\n\n{\n\na = 3\n\n}', a, 3, int, false",
     "a = 0 if (true) {}, a, 0, int, false",
+    "'a = -10, b = if (a < 0) {:= \"-\"} elseif (a == 0) {:= \"0\"} else {:= \"+\"}', 'b', '-', string, false",
+    "'a = 1, b = if \n (a == 0) \n {:= \"zero\"} \n elseif \n (a == 1) \n {:= \"one\"} \n elseif \n (a == 2) \n {:= \"two\"} \n else \n {:= \"other\"}', 'b', 'one', string, false",
     "if () { a = 3 }, a, null, null, true",  // Condition is necessary.
     "'if (true, a = 3', a, null, null, true",  // Block (operations) is necessary.
     "'if (true, a = 3)', a, null, null, true",  // Block (operations) is necessary.

@@ -909,6 +909,7 @@ class Parser {
 
     // elseif
     while (true) {
+      skipNewLines();  // [ <nl>+ ]
       statements = makeCallConditionAndOperations(Token.Type.ELSEIF);
       if (statements[0] == null || statements[1] == null) {
         break;
@@ -918,6 +919,7 @@ class Parser {
     }
 
     // else
+    skipNewLines();  // [ <nl>+ ]
     statements = makeCallConditionAndOperations(Token.Type.ELSE);
     if (statements[1] != null) {
       arguments.add(new Literal(new Token(Token.Type.TRUE)));
