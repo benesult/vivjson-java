@@ -58,7 +58,7 @@ limitations under the License.
   <scm>
     <connection>scm:git:git://github.com/benesult/vivjson-java.git</connection>
     <developerConnection>scm:git:ssh://github.com:benesult/vivjson-java.git</developerConnection>
-    <url>http://github.com/benesult/vivjson-java/tree/master</url>
+    <url>http://github.com/benesult/vivjson-java/tree/main</url>
   </scm>
 
   <properties>
