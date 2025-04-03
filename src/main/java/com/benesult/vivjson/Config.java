@@ -25,7 +25,7 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  * <p>Environment: Java 9 or later
  *
- * <p>Last modified: 2025-03-29
+ * <p>Last modified: 2025-04-04
  *
  * @author Fumiaki Motegi (motegi@benesult.com)
  */
@@ -43,7 +43,7 @@ public class Config {
    * This {@literal <Major> "." <Minor>} is equal to
    * {@link #SPEC_VERSION}'s one.
    */
-  public static final String INTERPRETER_VERSION = "1.0.0";
+  public static final String INTERPRETER_VERSION = "1.0.1";
   /** The default of enabling error message's stderr output. */
   static final boolean ENABLE_STDERR_DEFAULT = false;
   /** The default of enabling detail of error message's tag. */
