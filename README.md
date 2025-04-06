@@ -197,6 +197,28 @@ java -jar vivjson.jar
 ```
 
 
+## Installation
+
+Refer to [VivJson of Maven central repository](https://central.sonatype.com/artifact/com.benesult/vivjson).  
+
+For example, the following setting is needed in "build.gradle" if you implement it into Android App.
+
+```
+dependencies {
+    implementation 'com.benesult:vivjson:1.0.1'
+}
+```
+
+Furthermore, the following configuration is needed in "proguard-project.txt" if you implement it into Android App.
+Because VivJson's Standard library uses reflection in order to call method.
+
+```
+-keepclassmembers class com.benesult.vivjson.Standard {
+    public static <methods>;
+}
+```
+
+
 ## API
 
 | Pattern                                                                 | Consumed memory | Next running speed |
