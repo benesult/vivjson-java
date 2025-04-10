@@ -63,7 +63,8 @@ Viv.Result result = Viv.run(data, "return(qux)");
 System.out.println(result.errorMessage.isEmpty());  // true
 System.out.println(result.value);  // null
 // The existence can be checked with "in" operator.
-// Note that "." of the right hand side indicates the whole scope.
+// Note that "." of the right hand side represents this block
+// (this local scope).
 // "." as the operand is permitted only the right hand side of
 // "in" operator.
 // Carefully, it can't check about the variable whose prefix is "_".
